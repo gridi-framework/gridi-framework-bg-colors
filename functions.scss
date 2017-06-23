@@ -6,18 +6,18 @@
  * @param {string|list} [local-skip-palette-colors=null]  - extension of the skip standard colors when generate palete
  */
 @function get-background-colors-palette($local-extra-colors-palette: null, $local-skip-palette-colors: null) {
-    $generate-palette: get-colors-palette($background-colors-helpers-extra-colors-palette);
+    $generate-palette: get-colors-palette($background-colors-extra-colors-palette);
 
     @if type-of($local-extra-colors-palette) == map {
         $generate-palette: map-merge($generate-palette, $local-extra-colors-palette);
     }
 
-    @if type-of($background-colors-helpers-skip-colors-palette) == string {
-        $generate-palette: map-remove($generate-palette, $background-colors-helpers-skip-colors-palette);
+    @if type-of($background-colors-skip-colors-palette) == string {
+        $generate-palette: map-remove($generate-palette, $background-colors-skip-colors-palette);
     }
 
-    @if type-of($background-colors-helpers-skip-colors-palette) == list {
-        @each $palete-color-prefix in $background-colors-helpers-skip-colors-palette {
+    @if type-of($background-colors-skip-colors-palette) == list {
+        @each $palete-color-prefix in $background-colors-skip-colors-palette {
             $generate-palette: map-remove($generate-palette, $palete-color-prefix);
         }
     }
