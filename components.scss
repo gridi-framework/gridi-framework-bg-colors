@@ -1,5 +1,5 @@
 @each $palette-color-prefix, $palette-color-variables in get-background-colors-palette() {
-    .#{$background-colors-class-prefix}#{$palette-color-prefix} {
+    .#{$background-colors-class-prefix}-#{$palette-color-prefix} {
         background-color: map-get($palette-color-variables, color);
         color: map-get($palette-color-variables, background-inner-color);
     }
